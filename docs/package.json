@@ -1,0 +1,34 @@
+{
+  "name": "performance-matters-1819",
+  "version": "1.0.0",
+  "description": "Web dev minor Performance-matters",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmda-minor-web/performance-matters-1819.git"
+  },
+  "author": "Kevin Curi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmda-minor-web/performance-matters-1819/issues"
+  },
+  "homepage": "https://github.com/cmda-minor-web/performance-matters-1819#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "jws": "^4.0.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

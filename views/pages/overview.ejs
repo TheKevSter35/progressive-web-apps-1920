@@ -15,9 +15,12 @@
    
     <% giphy.data.forEach(data => { %>
          <li class = "results">
-         <a href="#<%= data.id %>"></a>
-            <img src="<%= data.images.original.url %><">
-            </a>
+         <a href="#<%= data.id %>">
+            <p><%= data.title %></p>
+         </a>
+            <img src="<%= data.images.original.url %>">
+            
+            
         </li>
         <% }) %>
 </ul>

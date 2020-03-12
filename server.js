@@ -21,7 +21,8 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname + 'public')));
 
 app.get("/", function (req, res) {
-  fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=nerd&limit=20&offset=0&rating=G&lang=en`)
+  fetch(`
+  https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=random+life&limit=20&offset=0&rating=G&lang=en`)
     .then( async response => {
     const giphy = await response.json()
     // console.log(giphy)
@@ -48,8 +49,9 @@ app.get("/search", function (req, res) {
 });
 });
 
-app.get('/search', (req, res) => {
-  fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&api_key=${process.env.MOVIEDB_TOKEN}`)
+app.get('/detail', (req, res) => {
+  const id = req.query.id;
+  fetch(`https://api.giphy.com/v1/gifs/eU2sRBEme4GIM${process.env.API_KEY}=quS2dai4NJv0dJVwt1KN0r1GxnGHx6B4`)
     .then(async response => {
       const giphy = await response.json()
       const templateData = {

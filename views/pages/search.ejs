@@ -7,7 +7,7 @@
     
 
       
-<body id= "overview">
+<body id= "search">
         <%- include ('../partials/nav.ejs') %>
 <section>
     
@@ -15,10 +15,10 @@
    
     <% giphy.data.forEach(data => { %>
         <li class = "results">
-            <a href="#<%= data.id %>">
+            <a href="<%= data.id %>">
                <p><%= data.title %></p>
             </a>
-               <img src="<%= data.images.original.url %>">
+               <img src="<%= data.images.preview_gif %>">
                
                
            </li>

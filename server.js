@@ -49,21 +49,15 @@ app.get("/search", function (req, res) {
 });
 });
 
-app.get('/detail', (req, res) => {
-  const id = req.query.id;
-  fetch(`https://api.giphy.com/v1/gifs/eU2sRBEme4GIM${process.env.API_KEY}=quS2dai4NJv0dJVwt1KN0r1GxnGHx6B4`)
-    .then(async response => {
-      const giphy = await response.json()
-      const templateData = {
-        query: req.query.query,
-        giphy
-      }
-
-      if (req.query.async) {
-        res.render('partials/result-list', { query: req.query.query, results: movieData.results })
-      } else {
-        res.render('results', templateData);
-      }
+app.get('/:id', (req, res) => {
+  Promise.all([
+  fetch(`https://api.giphy.com/v1/gifs/${req.params.id}?api_key=${process.env.API_KEY}`).then(response => response.json()) ])
+    .then(([detail]) => {
+      console.log([detail])
+      res.render('pages/detail', {
+        title: detail.title,
+        giphy: {...detail}
+      })
     })
 })
 app.use(function (req, res, next) {

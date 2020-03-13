@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <%- include ('../partials/head.ejs') %>
+    </head>
+    
+
+      
+<body id= "result">
+        <%- include ('../partials/nav.ejs') %>
+<section>
+    
+<ul id="detail">
+        <li class = "giphyGif">
+            <P>
+            <img src="<%= giphy.data.images.original.url %>">
+        </P>
+        
+        </li>
+        <li>
+            <h2><%= giphy.data.title %></h2>
+            <p><b>Rating: </b><%= giphy.data.rating %></p>
+            <p><a href="<%= giphy.data.embed_url %>">Link</a></p>
+               
+           </li>
+
+</ul>
+</section>
+</body>
+</html>

@@ -22,12 +22,11 @@ app.use(express.static(path.join(__dirname + 'public')));
 
 app.get("/", function (req, res) {
   fetch(`
-  https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=random+life&limit=20&offset=0&rating=G&lang=en`)
+  https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=random+life&limit=21&offset=0&rating=G&lang=en`)
     .then( async response => {
     const giphy = await response.json()
     // console.log(giphy)
        res.render('pages/overview', {
-    title: "start",
     giphy
     
   });
@@ -42,7 +41,7 @@ app.get("/search", function (req, res) {
     const giphy = await response.json()
     // console.log(giphy)
        res.render('pages/search', {
-    title: "start",
+    title: (searchWord),
     giphy
     
   });
@@ -53,10 +52,10 @@ app.get('/:id', (req, res) => {
   Promise.all([
   fetch(`https://api.giphy.com/v1/gifs/${req.params.id}?api_key=${process.env.API_KEY}`).then(response => response.json()) ])
     .then(([detail]) => {
-      console.log([detail])
+      
       res.render('pages/detail', {
-        title: detail.title,
-        giphy: {...detail}
+        detail: {...detail},
+        
       })
     })
 })

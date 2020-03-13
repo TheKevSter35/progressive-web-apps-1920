@@ -7,22 +7,22 @@
     
 
       
-<body id= "search">
+<body id= "overview" class="searchpage">
         <%- include ('../partials/nav.ejs') %>
 <section>
-    
+    <h2>Searching for: <i><%= title %> </i> </h2>
 <ul id="list">
    
     <% giphy.data.forEach(data => { %>
         <li class = "results">
-            <a href="<%= data.id %>">
-               <p><%= data.title %></p>
-            </a>
-               <img src="<%= data.images.preview_gif %>">
-               
-               
-           </li>
-        <% }) %>
+        <a href="<%= data.id %>">
+           <span><%= data.title %></span>
+        </a>
+           <img src="<%= data.images.original.url %>">
+           
+           
+       </li>
+       <% }) %>
 </ul>
 </section>
 </body>

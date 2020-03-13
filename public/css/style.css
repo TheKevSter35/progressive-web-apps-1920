@@ -168,56 +168,45 @@ fieldset {
     opacity: 0;
     /* padding: 15px; */
 }
-#overview section .results p {
+#overview section .results span {
 
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color:rgba(0,0,0,0.5);
+    background-image: linear-gradient(45deg,#380CD6 10%, #E50AE7 50%, #380CD6 100%);
+    background-size: 400%;
+    animation:colorshift 6s linear 0s infinite;
     padding: 15px;
     opacity: inherit;
     color: inherit;
-
-
+    text-transform:capitalize;
     text-align: left;
 }
+
+
 #overview section .results a:hover {
-
     color: #fff;
-    /*! background-color: #000; */
-
     opacity: 1;
 }
-#overview section .results:hover, #overview section .results li a:hover, #overview section .results p:hover {
-    border-color: #1dcf5e;
+
+#overview section .results:hover, #overview section .results li a:hover, #overview section .results span:hover {
     opacity: 1;
 }
 
 #overview section .results {
-  
-/*! background-color: #252525; */
-  
 height: auto;
-  
 color: #fff;
-  
-/*! border: 3px solid #252525; */
-  
 transition: 0.3s ease 0s;
-  
 box-sizing: content-box;
-  
 position: relative;
-  
 text-align: center;
-  
 width: 17.5em;
-  
 flex-direction: column-reverse;
-  
 margin: 1.25px 2.5px;
 }
+
+
 
 #overview section .results img {
     width: 100%;
@@ -251,8 +240,7 @@ button::after {
 }
 
 button {
-    /* border: 1px solid; */
-    background-color: #1dcf5e;
+    background-image: linear-gradient(45deg,#380CD6 10%, #E50AE7 50%, #380CD6 100%);
     color: #fff;
     border: none;
     padding: 16px;
@@ -261,6 +249,8 @@ button {
     width: 5em;
     z-index: 1;
     cursor: pointer;
+    background-size: 400%;
+    animation:colorshift 4s linear 0s infinite;
 }
 
 #info {
@@ -305,12 +295,15 @@ button {
     padding: 15px;
 }
 #error section a {
-    background-color: #1dcf5e;
     padding: 15px;
     color: #fff;
     text-decoration: none;
     font-weight: bold;
     border-radius: 0.6em;
+    background-image: linear-gradient(45deg,#380CD6 10%, #E50AE7 50%, #380CD6 100%);
+    cursor: pointer;
+    background-size: 400%;
+    animation:colorshift 3s linear 0s infinite;
 }
 
 #result #detail {
@@ -324,9 +317,30 @@ button {
 #detail li {
     width: 50%;
     text-align: center;
+    padding: 1em;
 }
 #detail .giphyGif img {
     width: 100%;
+}
+#detail .giphyInfo {
+    text-align: left;
+    position: relative;
+}
+#detail .giphyInfo h2{
+    text-transform:capitalize;
+}
+#detail .giphyInfo .Link {
+    display: inline-flex;
+    position: absolute;
+    bottom: 1.9em;
+}
+#detail .giphyInfo .Link p {
+    margin-right: 1em;
+    background-color: #fff;
+}
+.searchpage h2 {
+    padding: 0.6em 1em;
+    background-color: #383838;
 }
 /****************************/
 /*+++++MEDIA QUERIES+++++*/
@@ -354,3 +368,19 @@ button {
 
 /****************************/
 /*+++++++++++++++++++++++*/
+
+@keyframes colorshift
+{
+    
+      0% {
+        background-position:0%  100%;
+      }
+      50% {
+        background-position:100%  100%;
+      }
+
+      100% {
+        background-position:0%  100%;
+      }
+      
+}

@@ -14,15 +14,21 @@
 <ul id="detail">
         <li class = "giphyGif">
             <P>
-            <img src="<%= giphy.data.images.original.url %>">
+            <img src="<%= detail.data.images.original.url %> ">
         </P>
         
         </li>
-        <li>
-            <h2><%= giphy.data.title %></h2>
-            <p><b>Rating: </b><%= giphy.data.rating %></p>
-            <p><a href="<%= giphy.data.embed_url %>">Link</a></p>
-               
+        <li class="giphyInfo">
+            <h2><%= detail.data.title %></h2>
+            <p><b><%= detail.data.import_datetime %></b></p>
+        <br>
+            <p><b>Rating: </b><%= detail.data.rating %></p>
+            <p><b>Uploaded by </b><%= detail.data.username ? detail.data.username[1] : 'Anonymous'%></p>
+
+            <div class="Link">
+            <p><a href="<%= detail.data.embed_url %>">Link</a></p>
+            <p><a href="<%= detail.data.source %>">Link</a></p>
+               </div>
            </li>
 
 </ul>

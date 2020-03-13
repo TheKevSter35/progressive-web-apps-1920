@@ -331,8 +331,8 @@ button {
 }
 #detail .giphyInfo .Link {
     display: inline-flex;
-    position: absolute;
-    bottom: 1.9em;
+    padding-bottom: 1em;
+
 }
 #detail .giphyInfo .Link p {
     margin-right: 1em;

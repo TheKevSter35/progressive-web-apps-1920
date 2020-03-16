@@ -4,7 +4,8 @@ let bodyParser = require('body-parser');
 let path = require('path');
 let fetch = require('node-fetch');
 let app = express()
-let port = 3000
+let port = process.env.PORT
+
 
 //view Engines 
 app.set('view engine', 'ejs');
@@ -37,7 +38,6 @@ app.get("/search", function (req, res) {
   const searchWord = req.query.searchWord;
   fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${searchWord}&limit=24&offset=0&rating=G&lang=en`)
     .then( async response => {
-      
     const giphy = await response.json()
     // console.log(giphy)
        res.render('pages/search', {
@@ -49,10 +49,8 @@ app.get("/search", function (req, res) {
 });
 
 app.get('/:id', (req, res) => {
-  Promise.all([
-  fetch(`https://api.giphy.com/v1/gifs/${req.params.id}?api_key=${process.env.API_KEY}`).then(response => response.json()) ])
-    .then(([detail]) => {
-      
+  fetch(`https://api.giphy.com/v1/gifs/${req.params.id}?api_key=${process.env.API_KEY}`).then(response => response.json()) 
+    .then((detail) => {
       res.render('pages/detail', {
         detail: {...detail},
         

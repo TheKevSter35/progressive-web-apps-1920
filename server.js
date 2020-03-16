@@ -27,7 +27,7 @@ app.get("/", function (req, res) {
     .then( async response => {
     const giphy = await response.json()
     // console.log(giphy)
-       res.render('pages/overview', {
+       res.render('pages/index', {
     giphy
     
   });

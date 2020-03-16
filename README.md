@@ -1,8 +1,9 @@
 
 
-## What does your app do, what is the goal?
+## Discover Gifs
 
-![76c8f44885b70badbf008cf8657aadcd](https://user-images.githubusercontent.com/43183768/76684794-36505b80-660f-11ea-9d37-d12cc0b8067e.jpg)
+![b6e2407e4e0b1ac9c1dda79ac995a36e](https://user-images.githubusercontent.com/43183768/76777754-fb822b00-67a8-11ea-8205-f947d6ab9bb5.jpg)
+
 
 With Discover Gifs api you can search gifs. Basis of keywords it will search any gif and generates a list with that keyword. 
 
@@ -34,12 +35,19 @@ Giphy:  https://developers.giphy.com/
 * Heroku
 
 
-### Wishlist
-* Using a templating engine (transparancy)
 
 ### Backlog
-* Make routie in a router module (is now in the render module)
-* Use Filter,map, reduce. 
-* Promise doenst work in the github demo 
+- [x] Render a page with express
+- [x] Use ejs engine
+- [x] Set static path (for example icons)
+- [x] Transfer overview page from WAFS
+- [x] Search function
+- [x] render Detail page if select a gif on overview/searchpage
+- [x] Add css to make it look good
+- [x] Add Manifest 
+- [ ] add service worker
+- [x] Deploy app to heroku (Thx @decrek)
+- [ ] make server.js moduler
+- [ ] Make css moduler (maybe sass)
 
 

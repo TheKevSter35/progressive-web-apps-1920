@@ -4,7 +4,7 @@ let bodyParser = require('body-parser');
 let path = require('path');
 let fetch = require('node-fetch');
 let app = express()
-let port = process.env.PORT
+let port = process.env.PORT || 3000
 
 
 //view Engines 

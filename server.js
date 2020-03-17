@@ -47,6 +47,10 @@ app.get("/search", function (req, res) {
   });
 });
 });
+app.get('/offline', (req, res) => {
+  console.log('Load Offline')
+  res.render('pages/status/offline')
+})
 
 app.get('/:id', (req, res) => {
   fetch(`https://api.giphy.com/v1/gifs/${req.params.id}?api_key=${process.env.API_KEY}`).then(response => response.json()) 
@@ -57,6 +61,8 @@ app.get('/:id', (req, res) => {
       })
     })
 })
+
+
 app.use(function (req, res, next) {
   
   res.status(404).render('pages/status/404');

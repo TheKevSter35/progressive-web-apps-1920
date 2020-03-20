@@ -48,7 +48,6 @@ app.get("/search", function (req, res) {
 });
 });
 app.get('/offline', (req, res) => {
-  console.log('Load Offline')
   res.render('pages/status/offline')
 })
 

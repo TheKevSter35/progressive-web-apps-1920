@@ -21,14 +21,14 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
     console.log('Fetch event: ', event.request.url);
-    if (isCoreGetRequest(event.request)) {
+    if (CORE_GetRequest(event.request)) {
         console.log('Core get request: ', event.request.url);
         // cache only strategy
         event.respondWith(
           caches.open(CORE_CACHE)
             .then(cache => cache.match(event.request.url))
         )
-      } else if (isHtmlGetRequest(event.request)) {
+      } else if (HTML_GetRequest(event.request)) {
         console.log('html get request', event.request.url)
         // generic fallback
         event.respondWith(
@@ -63,7 +63,7 @@ function fetchAndCache(request, cacheName) {
  * @param {Object} request        The request object
  * @returns {Boolean}            Boolean value indicating whether the request is a GET and HTML request
  */
-function isHtmlGetRequest(request) {
+function HTML_GetRequest(request) {
     return request.method === 'GET' && (request.headers.get('accept') !== null && request.headers.get('accept').indexOf('text/html') > -1);
   }
   
@@ -73,7 +73,7 @@ function isHtmlGetRequest(request) {
    * @param {Object} request        The request object
    * @returns {Boolean}            Boolean value indicating whether the request is in the core mapping
    */
-  function isCoreGetRequest(request) {
+  function CORE_GetRequest(request) {
     return request.method === 'GET' && CORE_ASSETS.includes(getPathName(request.url));
   }
   

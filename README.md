@@ -61,9 +61,9 @@ API_KEY= (GIPHY API KEY)
 - [x] add service worker
 - [x] Deploy app to heroku (Thx @decrek)
 - [x] Make the site responsive
-- [ ] Add icons to the Manifest 
+- [x] Add icons to the Manifest 
 - [ ] Bug: when go to detail it (Terminal) cannot read gif but it still loads the gif 
-- [ ] Add the sharelink button in detail page
+- [x] Add the sharelink button in detail page
 - [ ] make server.js moduler (optional)
 - [ ] Make css moduler (maybe sass) (optional)
 
@@ -77,7 +77,6 @@ API_KEY= (GIPHY API KEY)
 1.  when go to detail it (Terminal) cannot read gif but it still loads the gif. i dont know how to fix that or should i just leave it like that.
 <img width="" alt="a7fd4564c0e0ceccc67726770715ce14" src="https://user-images.githubusercontent.com/43183768/77153725-937a6000-6a9a-11ea-9c35-b29b2822df94.png">
 
-(i'm not getting the errors anymore :D)
 
 2. in offline mode the index page shows the (no-image found icon) is there a way to hide it? like facebook that you only can see a gray background.
 

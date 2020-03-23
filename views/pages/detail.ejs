@@ -24,8 +24,8 @@
      
         <br>
         <div class="Link">
-            <p><a href="<%= detail.data.embed_url %>">Link</a></p>
-            <p><a href="<%= detail.data.source %>">Link</a></p>
+            <p><a href="<%= detail.data.embed_url %>"><img src="../source/pictures/external-link.svg"></a></p>
+            <p><a id="copyurl" value="<%= detail.data.source %>"><img src="../source/pictures/link.svg"></a></p>
                </div>
     <hr>
             <p><b>Rating: </b><%= detail.data.rating %></p>
@@ -36,4 +36,5 @@
 
 </ul>
 </section>
+<!-- <script src="../js/copyurl.js"></script> -->
 <%- include ('../partials/footer.ejs') %>

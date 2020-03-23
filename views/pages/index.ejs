@@ -14,15 +14,15 @@
 <ul id="list">
    
     <% giphy.data.forEach(data => { %>
-         <li class = "results">
-         <a href="<%= data.id %>">
-            <span><%= data.title %></span>
+         <li class = "results fixed-ratio">
+         <a href="<%= data.id %>" alt="visit <%= data.title %> detailpage">
+            <h2><%= data.title %></h2>
          </a>
-            <img src="<%= data.images.original.url %>">
+            <img style="margin-bottom:-5px;" class="fixed-ratio-content"  src="<%= data.images.fixed_height_downsampled.url %>" alt="<%= data.title %>" >
             
             
         </li>
         <% }) %>
-</ul>
+</img>
 </section>
 <%- include ('../partials/footer.ejs') %>

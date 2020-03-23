@@ -148,10 +148,16 @@ fieldset {
     text-align: center;
 }
 
-#searchmusic {
+#searchbar {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+}
+
+#searchbar label {
+    height: 0px;
+    width: 0px;
+    opacity: 0;
 }
 
 /* section 2 */
@@ -161,14 +167,14 @@ fieldset {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 4px;
+    bottom: -1px;
     background-color: transparent;
     color: transparent;
     transition: 0.3s ease 0s;
     opacity: 0;
     /* padding: 15px; */
 }
-#overview section .results span {
+#overview section .results h2 {
 
     position: absolute;
     bottom: 0;
@@ -182,6 +188,7 @@ fieldset {
     color: inherit;
     text-transform:capitalize;
     text-align: left;
+    font-size: 1em;
 }
 
 
@@ -194,17 +201,7 @@ fieldset {
     opacity: 1;
 }
 
-#overview section .results {
-height: auto;
-color: #fff;
-transition: 0.3s ease 0s;
-box-sizing: content-box;
-position: relative;
-text-align: center;
-width: 17.5em;
-flex-direction: column-reverse;
-margin: 1.25px 2.5px;
-}
+#overview section .results {height: auto;color: #fff;transition: 0.3s ease 0s;box-sizing: content-box;position: relative;text-align: center;width: 17.5em;flex-direction: column-reverse;margin: 2.5px;}
 
 
 
@@ -338,9 +335,11 @@ button {
     margin-right: 1em;
     background-color: #fff;
 }
-.searchpage h2 {
+.searchpage h1 {
     padding: 0.6em 1em;
     background-color: #383838;
+    margin: 0;
+    font-size: 2em;
 }
 /****************************/
 /*+++++MEDIA QUERIES+++++*/

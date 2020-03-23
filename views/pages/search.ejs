@@ -10,19 +10,19 @@
 <body id= "overview" class="searchpage">
         <%- include ('../partials/nav.ejs') %>
 <section>
-    <h2>Searching for: <i><%= title %> </i> </h2>
+    <h1>Searching for: <i><%= title %> </i> </h1>
 <ul id="list">
    
-    <% giphy.data.forEach(data => { %>
-        <li class = "results">
-        <a href="<%= data.id %>">
-           <span><%= data.title %></span>
-        </a>
-           <img src="<%= data.images.original.url %>">
-           
-           
-       </li>
-       <% }) %>
+     <% giphy.data.forEach(data => { %>
+         <li class = "results">
+         <a href="<%= data.id %>" alt="visit <%= data.title %> detailpage">
+            <h2><%= data.title %></h2>
+         </a>
+         <img style="margin-bottom:-5px;" class="fixed-ratio-content"  src="<%= data.images.fixed_height_downsampled.url %>" alt="<%= data.title %>" >
+            
+            
+        </li>
+        <% }) %>
 </ul>
 </section>
 <%- include ('../partials/footer.ejs') %>

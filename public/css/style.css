@@ -215,7 +215,7 @@ fieldset {
 }
 
 input[type="text"] {
-    /* width: 100%; */
+    width: 100%;
     padding: 10px 15px;
     height: 2em;
     text-align: right;
@@ -349,12 +349,18 @@ button {
 
 /*tablets landscape mode*/
 @media (max-width:60em) {
-    
+    nav {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
 }
 
 /*tablets portrait mode*/
 @media (max-width:45em) {
-
+    #detail li {
+        width: 100%;
+      
+    }
     
 }
 

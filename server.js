@@ -7,6 +7,7 @@ let app = express()
 let port = process.env.PORT || 3000
 
 
+
 //view Engines 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+
 
 // Set Static path for non html code like pictures and CSS
 app.use(express.static(path.join(__dirname + 'public')));

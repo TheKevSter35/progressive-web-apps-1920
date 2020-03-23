@@ -201,13 +201,14 @@ fieldset {
     opacity: 1;
 }
 
-#overview section .results {height: auto;color: #fff;transition: 0.3s ease 0s;box-sizing: content-box;position: relative;text-align: center;width: 17.5em;flex-direction: column-reverse;margin: 2.5px;height: 15em;}
+#overview section .results {height: auto;color: #fff;transition: 0.3s ease 0s;box-sizing: content-box;position: relative;text-align: center;width: 17.5em;flex-direction: column-reverse;margin: 2.5px;}
 
 
 
 #overview section .results img {
     width: 100%;
     height: 15em;
+
     opacity: 1;
     z-index: 7;
     object-fit: fill;
@@ -370,17 +371,6 @@ button {
     animation:imgRotate 1s linear 0s infinite;
 }
 
-
-.fixed-ratio {
-    display: block;
-    position: relative;
-    height: 15em;
-    overflow: hidden;
-    background-color: rgb(40, 40, 40);
-    animation:loading 7s  linear 0s  infinite;
-}
-
-
 /****************************/
 /*+++++MEDIA QUERIES+++++*/
 /*Bij de aangegeven max-width wordt de code uitgevoerd!*/
@@ -447,21 +437,6 @@ button {
 
       100% {
         background-position:0%  100%;
-      }
-      
-}
-@keyframes loading
-{
-    
-      0% {
-        background-color: rgba(40, 40, 40, 1);
-      }
-      50% {
-        background-color: rgba(40, 40, 40, 0.4);
-      }
-
-      100% {
-        background-color: rgba(40, 40, 40, 1);
       }
       
 }

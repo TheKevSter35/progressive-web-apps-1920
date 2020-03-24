@@ -65,7 +65,7 @@ API_KEY= (GIPHY API KEY)
 - [ ] Bug: when go to detail it (Terminal) cannot read gif but it still loads the gif 
 - [x] Add the sharelink button in detail page
 - [ ] make server.js moduler (optional)
-- [ ] Make css moduler (maybe sass) (optional)
+- [x] Make css moduler (maybe sass) (optional)
 
 
 ### wishlist

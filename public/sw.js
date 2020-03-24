@@ -1,7 +1,10 @@
 const CORE_CACHE = 1
 const CORE_ASSETS = [
   '/offline',
-  '/css/style.css',
+  '/css/minified/style.css',
+  '/source/pictures/search.svg',
+  '/source/pictures/link.svg',
+  '/source/pictures/external-link.svg'
 ]
 
 self.addEventListener('install', event => {

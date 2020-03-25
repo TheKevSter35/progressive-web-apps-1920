@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname + 'public')));
 
 app.get("/", function (req, res) {
   fetch(`
-  https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=cats&limit=24&offset=0&rating=G&lang=en`)
+  https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=cats&limit=20&offset=0&rating=G&lang=en`)
     .then( async response => {
     const giphy = await response.json()
     // console.log(giphy)
@@ -39,7 +39,7 @@ app.get("/", function (req, res) {
 
 app.get("/search", function (req, res) {
   const searchWord = req.query.searchWord;
-  fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${searchWord}&limit=24&offset=0&rating=G&lang=en`)
+  fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${searchWord}&limit=20&offset=0&rating=G&lang=en`)
     .then( async response => {
     const giphy = await response.json()
     // console.log(giphy)

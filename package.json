@@ -10,7 +10,9 @@
     "prestart": "npm run build",
     "start": "node server.js",
     "dev": "nodemon server.js",
-
+    "build": "npm-run-all build:*",
+    "build:gulp": "gulp buildCSS",
+    "watch": "gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

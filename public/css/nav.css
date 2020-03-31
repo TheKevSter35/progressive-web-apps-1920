@@ -40,7 +40,7 @@ button::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("../../source/pictures/search.svg");
+    background-image: url(../../source/pictures/search.svg);
     position: absolute;
     z-index: -1;
     margin: auto;

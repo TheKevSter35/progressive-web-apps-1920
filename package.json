@@ -6,6 +6,10 @@
   "directories": {
     "example": "examples"
   },
+  "engines": {
+    "node": "12.16.x",
+    "npm": "6.x"
+  },
   "scripts": {
     "prestart": "npm run build",
     "start": "node server.js",

@@ -57,6 +57,12 @@ npm run dev
 "node-fetch": "^2.6.0"
 ```
 
+## Optimisations
+
+###minifying
+
+I minified CSS using [Clean css](https://www.npmjs.com/package/gulp-clean-css)
+
 ## Performance enhancements
 I used different techniques to make the website perform even on slow connections. The project dont have much code but there in the 5 categories for lighthouse (Google Audit). 
 
@@ -92,11 +98,86 @@ For SEO. i added the manifest file and robots.txt
 
 <img width="" alt="audit-after-best-seo" src="https://user-images.githubusercontent.com/43183768/77447068-8be6ee00-6def-11ea-950b-8db493e795e9.png">
 
+### Progressive web app (2 Medals)
+<img width="" alt="audit-after-best-pwa" src="https://user-images.githubusercontent.com/43183768/77447642-3101c680-6df0-11ea-8fc4-d9b2fcd08dbc.png">
+
 ### 5. Service Worker
 I added a service worker to make the app usablly (for the most part)on slow connection (example 3G). The service worker checks of the file is in de cache and serves it. 
 
-### Progressive web app (2 Medals)
-<img width="" alt="audit-after-best-pwa" src="https://user-images.githubusercontent.com/43183768/77447642-3101c680-6df0-11ea-8fc4-d9b2fcd08dbc.png">
+1. register the Serviceworker (script tag)
+
+```js
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+```
+
+2. Set which files to cache
+
+```js
+const CORE_CACHE = 1
+const CORE_ASSETS = [
+  '/offline',
+  '/css/minified/style.css',
+  '/source/pictures/search.svg',
+  '/source/pictures/link.svg',
+  '/source/pictures/external-link.svg'
+]
+```
+3. Install the ServiceWorker
+
+```js
+self.addEventListener('install', event => {
+    event.waitUntil(
+    caches.open(CORE_CACHE).then(function(cache) {
+        return cache.addAll(CORE_ASSETS).then(() => self.skipWaiting());
+    })
+    )
+})
+```
+
+4. Fetch data from the Serviceworker
+
+```js
+self.addEventListener('fetch', event => {
+    console.log('Fetch event: ', event.request.url);
+    if (CORE_GetRequest(event.request)) {
+        console.log('Core get request: ', event.request.url);
+        // cache only strategy
+        event.respondWith(
+          caches.open(CORE_CACHE)
+            .then(cache => cache.match(event.request.url))
+        )
+      } else if (HTML_GetRequest(event.request)) {
+        console.log('html get request', event.request.url)
+        // generic fallback
+        event.respondWith(
+    
+          caches.open('html-cache')
+            .then(cache => cache.match(event.request.url))
+            .then(response => response ? response : fetchAndCache(event.request, 'html-cache'))
+            .catch(e => {
+              return caches.open(CORE_CACHE)
+                .then(cache => cache.match('/offline'))
+            })
+        )
+      }
+})
+```
+
+5. service worker is working 
+![32a5c07d41a7534836c16bb0dfa238ce](https://user-images.githubusercontent.com/43183768/78029904-9827f980-7361-11ea-8fd1-cc6f24df21eb.gif)
+
+
+
 
 
 #### Backlog

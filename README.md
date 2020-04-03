@@ -193,7 +193,7 @@ self.addEventListener('fetch', event => {
 5. Clone the cache 
 
 ```js
-//clone the cache
+//A request is a stream and can only be consumed once. Since we are consuming this once by cache and once by the browser for fetch, we need to clone the response.
 function fetchAndCache(request, cacheName) {
     return fetch(request)
       .then(response => {
@@ -208,7 +208,7 @@ function fetchAndCache(request, cacheName) {
   }
 ```
 
-5. service worker is working 
+
 ![32a5c07d41a7534836c16bb0dfa238ce](https://user-images.githubusercontent.com/43183768/78029904-9827f980-7361-11ea-8fd1-cc6f24df21eb.gif)
 
 
@@ -243,3 +243,4 @@ function fetchAndCache(request, cacheName) {
 
 ### Source
 - Declan Rek his code for the service worker
+- [service worker] (https://developers.google.com/web/fundamentals/primers/service-workers)

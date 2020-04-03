@@ -59,9 +59,24 @@ npm run dev
 
 ## Optimisations
 
-###minifying
+### minifying
 
 I minified CSS using [Clean css](https://www.npmjs.com/package/gulp-clean-css)
+
+For JS i used the webtool [minifier](https://www.minifier.org/) form 533b to 403b.
+
+### Compression
+
+I used [compression](https://www.npmjs.com/package/compression) to compress files in to GZIP (HTML and CSS).
+
+before compression 
+
+<img width="" alt="a3e521fad9df4ad0247e463732b245a5" src="https://user-images.githubusercontent.com/43183768/78366247-855f3000-75c0-11ea-972e-a812d94cd137.png">
+
+after compression 
+
+<img width="" alt="0c5415aac046d281e5af98a574dae645" src="https://user-images.githubusercontent.com/43183768/78366596-fef71e00-75c0-11ea-9516-74acaa257aaa.png">
+
 
 ## Performance enhancements
 I used different techniques to make the website perform even on slow connections. The project dont have much code but there in the 5 categories for lighthouse (Google Audit). 
@@ -135,6 +150,7 @@ const CORE_ASSETS = [
 3. Install the ServiceWorker
 
 ```js
+//install the SW
 self.addEventListener('install', event => {
     event.waitUntil(
     caches.open(CORE_CACHE).then(function(cache) {
@@ -147,6 +163,7 @@ self.addEventListener('install', event => {
 4. Fetch data from the Serviceworker
 
 ```js
+//return one of mine cached responses 
 self.addEventListener('fetch', event => {
     console.log('Fetch event: ', event.request.url);
     if (CORE_GetRequest(event.request)) {
@@ -158,19 +175,37 @@ self.addEventListener('fetch', event => {
         )
       } else if (HTML_GetRequest(event.request)) {
         console.log('html get request', event.request.url)
-        // generic fallback
+        // generic fallback 
         event.respondWith(
-    
           caches.open('html-cache')
             .then(cache => cache.match(event.request.url))
             .then(response => response ? response : fetchAndCache(event.request, 'html-cache'))
             .catch(e => {
+              //if no cache the return to offline page
               return caches.open(CORE_CACHE)
                 .then(cache => cache.match('/offline'))
             })
         )
       }
 })
+```
+
+5. Clone the cache 
+
+```js
+//clone the cache
+function fetchAndCache(request, cacheName) {
+    return fetch(request)
+      .then(response => {
+        if (!response.ok) {
+          throw new TypeError('Bad response status');
+        }
+  
+        const clone = response.clone()
+        caches.open(cacheName).then((cache) => cache.put(request, clone))
+        return response
+      })
+  }
 ```
 
 5. service worker is working 
@@ -206,3 +241,5 @@ self.addEventListener('fetch', event => {
 
 
 
+### Source
+- Declan Rek his code for the service worker

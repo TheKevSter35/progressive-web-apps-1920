@@ -5,9 +5,10 @@ let path = require('path');
 let fetch = require('node-fetch');
 let app = express()
 let port = process.env.PORT || 3000
+let compression = require('compression')
 
-
-
+//compress html and CSS
+app.use(compression())
 
 //view Engines 
 app.set('view engine', 'ejs');
@@ -21,10 +22,13 @@ app.use(bodyParser.urlencoded({
 }));
 
 
+
+
 // Set Static path for non html code like pictures and CSS
 app.use(express.static(path.join(__dirname + 'public')));
 
 app.get("/", function (req, res) {
+  
   fetch(`
   https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=cats&limit=20&offset=0&rating=G&lang=en`)
     .then( async response => {
@@ -32,6 +36,7 @@ app.get("/", function (req, res) {
     // console.log(giphy)
        res.render('pages/index', {
     giphy
+    
     
   });
 });

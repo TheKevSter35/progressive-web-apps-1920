@@ -48,7 +48,7 @@ self.addEventListener('fetch', event => {
       }
 })
 
-//clone the cache
+//A request is a stream and can only be consumed once. Since we are consuming this once by cache and once by the browser for fetch, we need to clone the response.
 function fetchAndCache(request, cacheName) {
     return fetch(request)
       .then(response => {
@@ -64,7 +64,6 @@ function fetchAndCache(request, cacheName) {
 
 
 /**
- * declans code
  * Checks if a request is a GET and HTML request
  *
  * @param {Object} request        The request object

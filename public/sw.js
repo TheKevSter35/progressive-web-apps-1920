@@ -7,6 +7,7 @@ const CORE_ASSETS = [
   '/source/pictures/external-link.svg'
 ]
 
+//install the SW
 self.addEventListener('install', event => {
     event.waitUntil(
     caches.open(CORE_CACHE).then(function(cache) {
@@ -15,13 +16,13 @@ self.addEventListener('install', event => {
     )
 })
 
-
+//activate SW
 self.addEventListener('activate', event => {
     console.log('Activated service worker!')
     event.waitUntil(clients.claim());
 
 })
-
+//return one of mine cached responses 
 self.addEventListener('fetch', event => {
     console.log('Fetch event: ', event.request.url);
     if (CORE_GetRequest(event.request)) {
@@ -33,19 +34,21 @@ self.addEventListener('fetch', event => {
         )
       } else if (HTML_GetRequest(event.request)) {
         console.log('html get request', event.request.url)
-        // generic fallback
+        // generic fallback 
         event.respondWith(
-    
           caches.open('html-cache')
             .then(cache => cache.match(event.request.url))
             .then(response => response ? response : fetchAndCache(event.request, 'html-cache'))
             .catch(e => {
+              //if no cache the return to offline page
               return caches.open(CORE_CACHE)
                 .then(cache => cache.match('/offline'))
             })
         )
       }
 })
+
+//clone the cache
 function fetchAndCache(request, cacheName) {
     return fetch(request)
       .then(response => {
@@ -61,6 +64,7 @@ function fetchAndCache(request, cacheName) {
 
 
 /**
+ * declans code
  * Checks if a request is a GET and HTML request
  *
  * @param {Object} request        The request object

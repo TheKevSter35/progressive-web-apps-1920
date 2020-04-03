@@ -63,7 +63,7 @@ npm run dev
 
 I minified CSS using [Clean css](https://www.npmjs.com/package/gulp-clean-css)
 
-For JS i used the webtool [minifier](https://www.minifier.org/) form 533b to 403b.
+For JS i used the webtool [minifier](https://www.minifier.org/) from 533b to 403b.
 
 ### Compression
 

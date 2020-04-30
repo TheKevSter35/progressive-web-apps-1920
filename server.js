@@ -21,12 +21,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-
-
 // Set Static path for non html code like pictures and CSS
 app.use(express.static(path.join(__dirname + 'public')));
 
 require('./routes')(app);
-
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

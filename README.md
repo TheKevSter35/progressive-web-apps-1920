@@ -118,7 +118,7 @@ For SEO. i added the manifest file and robots.txt
 
 ### 5. Service Worker
 https://github.com/TheKevSter35/progressive-web-apps-1920/wiki/Service-worker
-```
+
 
 
 ![32a5c07d41a7534836c16bb0dfa238ce](https://user-images.githubusercontent.com/43183768/78029904-9827f980-7361-11ea-8fd1-cc6f24df21eb.gif)

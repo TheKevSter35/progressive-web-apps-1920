@@ -1,6 +1,6 @@
 
 
-## Discover Gifs
+# Discover Gifs PWA
 
 ![b6e2407e4e0b1ac9c1dda79ac995a36e](https://user-images.githubusercontent.com/43183768/76777754-fb822b00-67a8-11ea-8205-f947d6ab9bb5.jpg)
 
@@ -59,23 +59,9 @@ npm run dev
 
 ## Optimisations ( critical rendering path)
 
-### minifying
+Improving the critical render path is a must have if you want to improve your app performance. The goal is to basicly prioritize what a user needs on a page and render that first.
 
-I minified CSS using [Clean css](https://www.npmjs.com/package/gulp-clean-css)
 
-For JS i used the webtool [minifier](https://www.minifier.org/) from 533b to 403b.
-
-### Compression
-
-I used [compression](https://www.npmjs.com/package/compression) to compress files in to GZIP (HTML and CSS).
-
-before compression 
-
-<img width="" alt="a3e521fad9df4ad0247e463732b245a5" src="https://user-images.githubusercontent.com/43183768/78366247-855f3000-75c0-11ea-972e-a812d94cd137.png">
-
-after compression 
-
-<img width="" alt="0c5415aac046d281e5af98a574dae645" src="https://user-images.githubusercontent.com/43183768/78366596-fef71e00-75c0-11ea-9516-74acaa257aaa.png">
 
 
 ## Performance enhancements
@@ -91,9 +77,28 @@ What a difference! but how did i fix it.
 
 ### 1. Performance
 
-Performance was slow because it fetch high quality gifs. So i change the from original size to preview size to make the loadtime fast. Also to Minifying the css file to make it as small as possilbe (i used gulp-clean-css) 
+Performance was slow because it fetch high quality gifs. So i change the from original size to preview size to make the loadtime fast. 
+
+### Minifying
+
+I minified CSS using [Clean css](https://www.npmjs.com/package/gulp-clean-css)
+
+For JS i used the webtool [minifier](https://www.minifier.org/) from 533b to 403b.
+
+### Compression
+
+I used [compression](https://www.npmjs.com/package/compression) to compress files in to GZIP to make the size as small as possilbe (HTML and CSS).
+
+#### Before compression 
+
+<img width="" alt="a3e521fad9df4ad0247e463732b245a5" src="https://user-images.githubusercontent.com/43183768/78366247-855f3000-75c0-11ea-972e-a812d94cd137.png">
+
+#### After compression 
+
+<img width="" alt="0c5415aac046d281e5af98a574dae645" src="https://user-images.githubusercontent.com/43183768/78366596-fef71e00-75c0-11ea-9516-74acaa257aaa.png">
 
 <img width="" alt="audit-after-performance" src="https://user-images.githubusercontent.com/43183768/77443460-5e984100-6deb-11ea-831d-e54082a77c80.png">
+
 
 ### 2. Accessibility
 

@@ -57,7 +57,7 @@ npm run dev
 "node-fetch": "^2.6.0"
 ```
 
-## Optimisations
+## Optimisations ( critical rendering path)
 
 ### minifying
 

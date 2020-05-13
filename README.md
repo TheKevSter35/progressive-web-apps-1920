@@ -62,8 +62,6 @@ npm run dev
 Improving the critical render path is a must have if you want to improve your app performance. The goal is to basicly prioritize what a user needs on a page and render that first.
 
 
-
-
 ## Performance enhancements
 I used different techniques to make the website perform even on slow connections. The project dont have much code but there in the 5 categories for lighthouse (Google Audit). 
 
@@ -115,6 +113,16 @@ Best Practices didn't change much. for HTTP/2 Heroku doesn't support it yet. for
 ### 4. SEO
 
 For SEO. i added the manifest file and robots.txt
+
+#### Manifest
+The web app manifest is a JSON file that tells the browser about your Progressive Web App and how it should behave when installed on the user's desktop or mobile device. A typical manifest file includes the app name, the icons the app should use, and the URL that should be opened when the app is launched.
+
+https://web.dev/add-manifest/
+
+#### robots.txt
+Robots.txt is a text file webmasters create to instruct web robots (typically search engine robots) how to crawl pages on their website.
+
+https://moz.com/learn/seo/robotstxt
 
 <img width="" alt="audit-after-best-seo" src="https://user-images.githubusercontent.com/43183768/77447068-8be6ee00-6def-11ea-950b-8db493e795e9.png">
 

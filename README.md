@@ -142,7 +142,7 @@ https://github.com/TheKevSter35/progressive-web-apps-1920/wiki/Service-worker
 - [x] Add icons to the Manifest 
 - [ ] Bug: when go to detail it (Terminal) cannot read gif but it still loads the gif 
 - [x] Add the sharelink button in detail page
-- [ ] make server.js moduler (optional)
+- [x] make server.js moduler spilt routes
 - [x] Make css moduler (maybe sass) 
 - [x] Add placeholder for gif if the connection is slow the user will see the placeholder so user can is it is loading.
 

@@ -33,7 +33,7 @@ API_KEY= (GIPHY API KEY)
 
 ```
 # Clone repository
-git clone https://github.com/YOUR-USERNAME/performance-web-apps-1920.git
+git clone https://github.com/TheKevSter35/progressive-web-apps-1920.git
 
 cd performance-web-apps-1920
 

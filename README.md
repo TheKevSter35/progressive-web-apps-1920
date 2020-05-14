@@ -79,7 +79,7 @@ Performance was slow because it fetch high quality gifs. So i change the from or
 
 ### Minifying
 
-I minified CSS using [Clean css](https://www.npmjs.com/package/gulp-clean-css)
+I minified CSS using [Gulp Clean css](https://www.npmjs.com/package/gulp-clean-css)
 
 For JS i used the webtool [minifier](https://www.minifier.org/) from 533b to 403b.
 
